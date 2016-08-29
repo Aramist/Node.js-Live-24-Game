@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Make 24</title>
+		<style>
+			body{
+			width:100%;
+			height:100%;
+			background-color: #2E3532;
+			overflow: hidden;
+			}
+			.equation{
+			background:white;
+			position:absolute;
+			color:black;
+			text-align:center;
+			vertical-align: middle;
+			font-family:"Arial Black", Gadget, sans-serif;
+			border-radius: 28px;
+			/*background: radial-gradient(white 20%, #2E3532 80%);*/
+			}
+			.timer{
+				background: #2E3532;
+				color: #D1CACD;
+				right: 10%;
+				text-align: right;
+				vertical-align: middle;
+				width: 10%;
+				height:5%;
+				top:0%;
+				position:absolute;
+			}
+			.winner{
+				background: #2E3532;
+				color: #D1CACD;
+				left: 0%;
+				text-align: center;
+				vertical-align: middle;
+				width: 100%;
+				height:5%;
+				top:10%;
+				position:absolute;
+			}
+			.username{
+				background:#2E3532
+				position:absolute;
+				left:0%;
+				top:0%;
+				-align: middle;
+				height:5%;
+				color: D1CACD;
+				font-family:"Arial Black", Gadget, sans-serif;
+			}
+			.usercount{
+				background:#2E3532;
+				position:absolute;
+				vertical-align: middle;
+				left:0%;
+				top:5%;
+				height:5%;
+				color: D1CACD;
+				font-family:"Arial Black", Gadget, sans-serif;
+			}
+			
+			.number{
+				width: 20%;
+				height:15%;
+				top: 35%;
+			}
+			
+			.userp{
+				position: absolute;
+				top: 10%;
+				left:0%;
+				background:#2E3532;
+				height:5%;
+				color: D1CACD;
+				font-family:"Arial Black", Gadget, sans-serif;
+			}
+			
+			.userlist {
+				background-color:#725AC1;
+				border-radius: 28px;
+				shadow: 10px;
+				height:20%;
+				width: 40%;
+				position: absolute;
+				top: 40%;
+				left: 30%;
+				z-index:100;
+			}
+			
+			.numbutton {
+			position:absolute;
+			background: #1AC8ED;
+			background-image: -webkit-linear-gradient(top, #1AC8ED, #238598);
+			background-image: -moz-linear-gradient(top, #1AC8ED, #238598);
+			background-image: -ms-linear-gradient(top, #1AC8ED, #238598);
+			background-image: -o-linear-gradient(top, #1AC8ED, #238598);
+			background-image: linear-gradient(to bottom, #1AC8ED, #238598);
+			-webkit-border-radius: 28;
+			-moz-border-radius: 28;
+			border-radius: 28px;
+			font-family: Arial;
+			color: #ffffff;
+			font-size: 20px;
+			padding: 10px 20px 10px 20px;
+			text-decoration: none;
+			}
+			.numbutton:hover {
+			background: #3cb0fd;
+			background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+			background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+			background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+			background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+			background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+			text-decoration: none;
+			}
+			
+			.equation {
+				position: absolute;
+				width: 80%;
+				height: 5%;
+				left: 10%;
+				top: 20%;
+			}
+			
+			.usernameprompt{
+				background-color:#725AC1;
+				border-radius: 28px;
+				shadow: 10px;
+				height:20%;
+				width: 40%;
+				position: absolute;
+				top: 40%;
+				left: 30%;
+				z-index:100;
+			}
+			.usernameprompt > p{
+				text-align:center;
+				vertical-align: middle;
+				position:static;
+				width:100%;
+				height:10%;
+				background-color: #A28F9D;
+				color: white;
+			}
+			.usernameprompt > form{
+				position: absolute;
+				text-align: center;
+				width: 100%;
+				height: 10%;
+				left: 0%;
+				top: 45%;
+				color: white;
+				background-color: #A28F9D;
+				font-family:"Arial Black", Gadget, sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="equation"></p>
+		<p class="username"></p>
+		<p class="usercount"></p>
+		<p class="timer"></p>
+		<p class="winner"></p>
+		<p class="userp">Click here to toggle a list of online users</p>
+			
+		<div class="usernameprompt">
+			<form id="promptform">
+				<p id="prompttext"></p>
+				<input id="promptinput" type="text"></input>
+			</form>
+		</div>
+		
+		<div class="userlist">
+			<p></p>
+		</div>
+		
+		<button class="number numbutton" id="A">A</button>
+		<button class="number numbutton" id="B">B</button>
+		<button class="number numbutton" id="C">C</button>
+		<button class="number numbutton" id="D">D</button>
+		
+		<button class="operation numbutton" id="plus">+</button>
+		<button class="operation numbutton" id="minus">-</button>
+		<button class="operation numbutton" id="times">*</button>
+		<button class="operation numbutton" id="divide">/</button>
+		<button class="operation numbutton" id="exp">^</button>
+		
+		<button class="operation numbutton" id="leftparen">(</button>
+		<button class="operation numbutton" id="rightparen">)</button>
+		
+		<button class="operation numbutton" id="backspace">&#x2190</button>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>

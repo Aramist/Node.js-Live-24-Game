@@ -1,0 +1,13 @@
+{
+  "name": "Live-24-Game",
+  "version": "0.0.1",
+  "description": "Game that requires you to make 24 with 4 numbers and elementary operations",
+  "author": {
+    "name": "Aramis Tanelus"
+  },
+  "dependencies": {
+    "algebra.js": "^0.2.5",
+    "express": "^4.10.2",
+    "socket.io": "^1.4.8"
+  }
+}
