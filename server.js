@@ -23,56 +23,20 @@ var roundtime = ROUND_TIME;
 var usercount = 0;
 var users = [];
 
-
-
-/*var toinfix = function(expression){
-	var pfixString = "";
-	var infixStack = new LinkedStack();
-	
-	var precedence = function(operator){
-		switch(operator){
-		case "^":
-			return 3;
-		case "*":
-		case "/":
-			return 2;
-		case "+":
-		case "-":
-			return 1;
-		default:
-			return 0;
-		}
-	}
-	
-	for(var i=0; i<expression.length; i++){
-		var c = expression.charAt(i);
-		if(!isNaN(parseInt(c))){
-			pfixString += c;
-		}else if(c === "+" || c==="-" || c === "*" || c==="/" || c==="^"){
-			while(c != "^" && !infixStack.isStackEmpty() && (precedence(c) <= precedence(infixStack.stackTop()))){
-				pfixString += infixStack.popFromStack().item;
-			}
-			infixStack.pushToStack(c);
-		}
-	}
-	while(!infixStack.isStackEmpty()){
-		pfixString += infixStack.popFromStack().item;
-	}
-	
-	
-	
-	this.getPostfix = function(){
-		return pfixString;
-	}
-};*/
+String.prototype.replaceAll = function(search, replace) {
+    if (replace === undefined) {
+        return this.toString();
+    }
+    return this.split(search).join(replace);
+}
 
 var isCorrect = function(s) {
-	var exp = new algebra.parse(s);
-	console.log(exp.toString());
-	console.log(parseNumbers(currentEquation));
-	console.log(exp.eval(parseNumbers(currentEquation)));
-	console.log(exp.eval(parseNumbers(currentEquation)).toString());
-	return exp.eval(parseNumbers(currentEquation)).toString() === "24";
+	var nums = parseNumbers(currentEquation);
+	var exp = algebra.parse(s.replaceAll("A", nums.A)
+		.replaceAll("B", nums.B)
+		.replaceAll("C", nums.C)
+		.replaceAll("D", nums.D));
+	return exp.toString() === "24";
 };
 
 var loadEquation = function() {
